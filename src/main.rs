@@ -10,6 +10,7 @@ use crate::function::{use_function, use_function_async};
 mod async_await;
 mod closure;
 mod function;
+mod scope;
 
 #[tokio::main]
 async fn main() {
@@ -29,4 +30,6 @@ async fn main() {
 
     use_function("input".to_string()).await;
     use_function_async("input".to_string()).await;
+
+    scope::scope_fixed();
 }
