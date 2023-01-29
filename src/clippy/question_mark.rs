@@ -1,7 +1,7 @@
 pub fn option_function_first_none(input: Option<String>) -> Option<String> {
     let input = match input {
         None => return None,
-        Some(input) => input
+        Some(input) => input,
     };
     Some(input.to_ascii_lowercase())
 }
@@ -32,7 +32,9 @@ pub fn option_function_first_some_no_match_components(input: Option<String>) -> 
     Some(input.to_ascii_lowercase())
 }
 
-pub fn option_function_first_some_no_match_components_after_fix(input: Option<String>) -> Option<String> {
+pub fn option_function_first_some_no_match_components_after_fix(
+    input: Option<String>,
+) -> Option<String> {
     let input = input?;
     Some(input.to_ascii_lowercase())
 }
@@ -50,7 +52,9 @@ pub fn result_function_first_ok_after_fix(input: Result<String, String>) -> Resu
     Ok(input.to_ascii_lowercase())
 }
 
-pub fn result_function_first_ok_no_match_components(input: Result<String, String>) -> Result<String, String> {
+pub fn result_function_first_ok_no_match_components(
+    input: Result<String, String>,
+) -> Result<String, String> {
     let input = match input {
         Ok(input) => input,
         err => return err,
@@ -58,7 +62,9 @@ pub fn result_function_first_ok_no_match_components(input: Result<String, String
     Ok(input.to_ascii_lowercase())
 }
 
-pub fn result_function_first_ok_no_match_components_after_fix(input: Result<String, String>) -> Result<String, String> {
+pub fn result_function_first_ok_no_match_components_after_fix(
+    input: Result<String, String>,
+) -> Result<String, String> {
     let input = input?;
     Ok(input.to_ascii_lowercase())
 }
@@ -71,7 +77,9 @@ pub fn result_function_first_err(input: Result<String, String>) -> Result<String
     Ok(input.to_ascii_lowercase())
 }
 
-pub fn result_function_first_err_after_fix(input: Result<String, String>) -> Result<String, String> {
+pub fn result_function_first_err_after_fix(
+    input: Result<String, String>,
+) -> Result<String, String> {
     let input = input?;
     Ok(input.to_ascii_lowercase())
 }

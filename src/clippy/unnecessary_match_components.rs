@@ -9,7 +9,7 @@ pub fn option_function_first_some(input: Option<String>) -> Option<String> {
 pub fn option_function_first_some_after_fix(input: Option<String>) -> Option<String> {
     let input = match input {
         Some(input) => input,
-        none => return none,
+        none => return none, // TODO Create new lint for matching explicit value if only one left on pattern
     };
     Some(input.to_ascii_lowercase())
 }
@@ -37,18 +37,26 @@ pub struct Struct {
 pub fn struct_function(input: Option<Struct>) -> Option<Struct> {
     let input = match input {
         None => return None,
-        Some(Struct { field }) => Some(Struct { field })
+        Some(Struct { field }) => Some(Struct { field }),
     };
-    input.or_else(|| Some(Struct { field: "".to_string() }))
+    input.or_else(|| {
+        Some(Struct {
+            field: "".to_string(),
+        })
+    })
 }
 
 #[allow(clippy::needless_match)]
 pub fn struct_function_after_fix(input: Option<Struct>) -> Option<Struct> {
     let input = match input {
         None => return None,
-        some => some
+        some => some,
     };
-    input.or_else(|| Some(Struct { field: "".to_string() }))
+    input.or_else(|| {
+        Some(Struct {
+            field: "".to_string(),
+        })
+    })
 }
 
 // TODO: Enum function

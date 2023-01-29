@@ -50,15 +50,20 @@ async fn main() {
     clippy::question_mark::option_function_first_some_no_match_components_after_fix(None);
     clippy::question_mark::result_function_first_ok(Ok("".to_string())).unwrap();
     clippy::question_mark::result_function_first_ok_after_fix(Ok("".to_string())).unwrap();
-    clippy::question_mark::result_function_first_ok_no_match_components(Ok("".to_string())).unwrap();
-    clippy::question_mark::result_function_first_ok_no_match_components_after_fix(Ok("".to_string())).unwrap();
+    clippy::question_mark::result_function_first_ok_no_match_components(Ok("".to_string()))
+        .unwrap();
+    clippy::question_mark::result_function_first_ok_no_match_components_after_fix(Ok(
+        "".to_string()
+    ))
+    .unwrap();
     clippy::question_mark::result_function_first_err(Ok("".to_string())).unwrap();
     clippy::question_mark::result_function_first_err_after_fix(Ok("".to_string())).unwrap();
 
     clippy::unnecessary_match_components::option_function_first_some(None);
     clippy::unnecessary_match_components::option_function_first_some_after_fix(None);
     clippy::unnecessary_match_components::result_function_first_ok(Ok("".to_string())).unwrap();
-    clippy::unnecessary_match_components::result_function_first_ok_after_fix(Ok("".to_string())).unwrap();
+    clippy::unnecessary_match_components::result_function_first_ok_after_fix(Ok("".to_string()))
+        .unwrap();
     clippy::unnecessary_match_components::struct_function(None);
     clippy::unnecessary_match_components::struct_function_after_fix(None);
 }
