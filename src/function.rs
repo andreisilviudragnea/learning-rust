@@ -2,7 +2,7 @@ use futures::stream::{self, StreamExt};
 use std::future::Future;
 
 fn use_borrow(str: &str, input: &str) -> impl Future<Output = ()> {
-    println!("{} {}", str, input);
+    println!("{str} {input}");
     std::future::ready(())
 }
 
@@ -13,7 +13,7 @@ pub(crate) async fn use_function(input: String) {
 }
 
 async fn use_borrow_async(str: &str, input: &str) {
-    println!("{} {}", str, input);
+    println!("{str} {input}");
 }
 
 pub(crate) async fn use_function_async(input: String) {

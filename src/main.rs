@@ -8,6 +8,7 @@ use crate::closure::{
 use crate::function::{use_function, use_function_async};
 
 mod async_await;
+mod clone;
 mod closure;
 mod collect;
 mod function;
@@ -33,6 +34,10 @@ async fn main() {
     use_function_async("input".to_string()).await;
 
     scope::scope_fixed();
+    scope::scope_expanded();
+    scope::scope();
 
     collect::collect_example();
+
+    clone::function();
 }

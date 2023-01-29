@@ -8,7 +8,7 @@ pub(crate) async fn use_async_block(s: String) {
     }
     .await;
 
-    println!("{}", s);
+    println!("{s}");
 }
 
 pub(crate) async fn use_async_block_in_stream(s: String) {
@@ -16,23 +16,23 @@ pub(crate) async fn use_async_block_in_stream(s: String) {
         .for_each(|v| async {
             let v = v;
             println!("{}", s.clone());
-            println!("{}", v);
+            println!("{v}");
         })
         .await;
 
-    println!("{}", s);
+    println!("{s}");
 }
 
 pub(crate) async fn use_future_in_stream(s: String) {
     stream::iter(vec!["1".to_string(), "2".to_string(), "3".to_string()])
         .for_each(|v| {
             println!("{}", s.clone());
-            println!("{}", v);
+            println!("{v}");
             future::ready(())
         })
         .await;
 
-    println!("{}", s);
+    println!("{s}");
 }
 
 pub(crate) fn use_async_block_in_stream_return(s: String) -> impl Future<Output = ()> {
@@ -41,7 +41,7 @@ pub(crate) fn use_async_block_in_stream_return(s: String) -> impl Future<Output 
             .for_each(|v| async {
                 let v = v;
                 println!("{}", s.clone());
-                println!("{}", v);
+                println!("{v}");
             })
             .await
     }
@@ -50,7 +50,7 @@ pub(crate) fn use_async_block_in_stream_return(s: String) -> impl Future<Output 
 pub(crate) fn use_future_in_stream_return(s: String) -> impl Future<Output = ()> {
     stream::iter(vec!["1".to_string(), "2".to_string(), "3".to_string()]).for_each(move |v| {
         println!("{}", s.clone());
-        println!("{}", v);
+        println!("{v}");
         future::ready(())
     })
 }
