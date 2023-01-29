@@ -8,7 +8,7 @@ use crate::closure::{
 use crate::function::{use_function, use_function_async};
 
 mod async_await;
-mod clone;
+mod clippy;
 mod closure;
 mod collect;
 mod function;
@@ -39,5 +39,19 @@ async fn main() {
 
     collect::collect_example();
 
-    clone::function();
+    clippy::redundant_clone::function();
+    clippy::redundant_clone::function_after_fix();
+
+    clippy::question_mark::option_function_first_none(None);
+    clippy::question_mark::option_function_first_none_after_fix(None);
+    clippy::question_mark::option_function_first_some(None);
+    clippy::question_mark::option_function_first_some_after_fix(None);
+    clippy::question_mark::option_function_first_some_no_match_components(None);
+    clippy::question_mark::option_function_first_some_no_match_components_after_fix(None);
+    clippy::question_mark::result_function_first_ok(Ok("".to_string())).unwrap();
+    clippy::question_mark::result_function_first_ok_after_fix(Ok("".to_string())).unwrap();
+    clippy::question_mark::result_function_first_ok_no_match_components(Ok("".to_string())).unwrap();
+    clippy::question_mark::result_function_first_ok_no_match_components_after_fix(Ok("".to_string())).unwrap();
+    clippy::question_mark::result_function_first_err(Ok("".to_string())).unwrap();
+    clippy::question_mark::result_function_first_err_after_fix(Ok("".to_string())).unwrap();
 }
